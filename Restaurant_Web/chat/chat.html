@@ -1,30 +1,40 @@
 <!DOCTYPE html>
-<html lang="id">
+<html ng-app="chatApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplikasi Chat Restoran</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Fitur Chat</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
-<body ng-app="chatApp" ng-controller="ChatController">
+<body>
+    <div ng-controller="ChatController" class="app-container">
+        <div class="header">
+            <button class="back-button" ng-click="goBack()">←</button>
+            <div class="chat-header-info">
+                <h1>{{getHeaderTitle()}}</h1>
+                <span class="chat-status">Chat dengan {{getOtherUser().firstName}}</span>
+            </div>
+            <button class="switch-user" ng-click="toggleUser()">Switch User</button>
+        </div>
 
-    <div class="chat-container">
-        <div class="messages" ng-repeat="message in messages track by $index">
-            <div class="message" ng-class="{'user-message': message.from === 'User', 'admin-message': message.from === 'Admin'}">
-                <strong>{{message.from}}:</strong> {{message.text}}
-                <span class="timestamp">{{message.timestamp | date:'short'}}</span>
+        <div class="chat-container">
+            <div ng-repeat="message in messages | orderBy:'-createdAt'" 
+                class="message" 
+                ng-class="{'sent': message.author.id === currentUser.id, 'received': message.author.id !== currentUser.id}">
+                <div class="user-name">{{message.author.firstName}}</div>
+                <div class="message-content">{{message.text}}</div>
+                <div class="message-time">{{message.createdAt | date:'shortTime'}}</div>
             </div>
         </div>
 
         <div class="input-container">
-            <input type="text" ng-model="userInput" placeholder="Tanyakan sesuatu..." ng-keypress="checkEnter($event, 'user')">
-            <button ng-click="sendMessage('user')">Kirim (User)</button>
-        </div>
-
-        <div class="input-container admin-input">
-            <input type="text" ng-model="adminInput" placeholder="Jawab pesan pengguna..." ng-keypress="checkEnter($event, 'admin')">
-            <button ng-click="sendMessage('admin')">Kirim (Admin)</button>
+            <input type="text" 
+                class="message-input" 
+                ng-model="newMessage" 
+                laceholder="Type a message..."
+                ng-keypress="$event.keyCode === 13 && sendMessage()">
+            <button class="send-button" ng-click="sendMessage()">Send</button>
         </div>
     </div>
 
