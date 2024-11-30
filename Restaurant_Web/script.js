@@ -1,25 +1,25 @@
-const categoriesList = document.getElementById('categories-list');
+document.addEventListener("DOMContentLoaded", async () => {
+    const menuGrid = document.getElementById("menuGrid");
 
-async function loadCategories() {
-    try {
-        const response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
-        const data = await response.json();
+    const fetchCategories = async () => {
+        const res = await fetch("https://www.themealdb.com/api/json/v1/1/categories.php");
+        const data = await res.json();
+        return data.categories || [];
+    };
 
-        data.categories.forEach(category => {
-            const categoryItem = document.createElement('div');
-            categoryItem.classList.add('category-item');
+    const renderMenu = async () => {
+        const categories = await fetchCategories();
+        menuGrid.innerHTML = categories
+            .map(
+                (cat) => `
+                <div class="meal">
+                    <img src="${cat.strCategoryThumb}" alt="${cat.strCategory}">
+                    <h3>${cat.strCategory}</h3>
+                </div>
+            `
+            )
+            .join("");
+    };
 
-            categoryItem.innerHTML = `
-                <img src="${category.strCategoryThumb}" alt="${category.strCategory}">
-                <h3>${category.strCategory}</h3>
-                <p>${category.strCategoryDescription.substring(0, 100)}...</p>
-            `;
-
-            categoriesList.appendChild(categoryItem);
-        });
-    } catch (error) {
-        console.error('Error loading categories:', error);
-    }
-}
-
-window.onload = loadCategories;
+    renderMenu();
+});

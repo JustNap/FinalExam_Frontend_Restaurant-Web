@@ -1,61 +1,73 @@
-* {
+body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background: linear-gradient(to right, #ff9966, #ff5e62);
+    color: white;
 }
 
 header {
-    background-color: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-h1 {
-    margin: 0;
-}
-
-h2 {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.category-list {
+    background: white;
+    padding: 1rem 2rem;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.category-item {
-    background-color: #ecf0f1;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    margin: 10px;
-    width: 200px;
-    padding: 10px;
-    text-align: center;
-    transition: transform 0.3s ease;
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff5e62;
 }
 
-.category-item:hover {
-    transform: scale(1.05);
+.navbar .logo span {
+    color: #ff9966;
 }
 
-.category-item img {
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.meal {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: black;
+    transition: transform 0.2s ease;
+}
+
+.meal:hover {
+    transform: translateY(-10px);
+}
+
+.meal img {
     width: 100%;
-    border-radius: 10px;
+    height: 200px;
+    object-fit: cover;
 }
 
-footer {
+.meal h3 {
     text-align: center;
-    padding: 10px;
-    background-color: #2c3e50;
+    margin: 1rem 0;
+}
+
+.add-to-cart {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.5rem 1rem;
+    background: #ff5e62;
     color: white;
-    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.add-to-cart:hover {
+    background: #ff9966;
 }
