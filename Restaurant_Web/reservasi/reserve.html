@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="reservationApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Reservation</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-controller="ReservationController">
+
+    <div class="container" ng-if="!isSummaryVisible">
+        <h1>Restaurant Reservation</h1>
+        <form ng-submit="submitReservation()" novalidate>
+
+            <fieldset>
+                <legend>Customer Information</legend>
+                <label for="name">Name:</label>
+                <input type="text" id="name" ng-model="reservation.name" required>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" ng-model="reservation.phone" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" ng-model="reservation.email" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Details Reservation</legend>
+                <label for="tableType">Rooms Type:</label>
+                <select id="tableType" ng-model="reservation.tableType" required>
+                    <option value="">Select Table Rooms</option>
+                    <option value="Indoor">Indoor</option>
+                    <option value="Outdoor">Outdoor</option>
+                    <option value="VIP">VIP Room</option>
+                </select>
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" ng-model="reservation.date" required>
+
+                <label for="time">Time:</label>
+                <input type="time" id="time" ng-model="reservation.time" required>
+
+                <label for="guests">Number of Guests:</label>
+                <input type="number" id="guests" ng-model="reservation.guests" min="1" required>
+
+                <div class="ticket-layout">
+                    <h3>Select Table:</h3>
+                    <div class="row" ng-repeat="row in tableRows">
+                        <div 
+                            class="table" 
+                            ng-repeat="seat in row" 
+                            ng-click="selectTable(seat)" 
+                            ng-class="{
+                                'selected': reservation.table === seat,
+                                'reserved': !isTableAvailable(seat)
+                            }" 
+                            title="Table {{ seat }} - {{ isTableAvailable(seat) ? 'Available' : 'Reserved' }}">
+                            {{ seat }}
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Requests</legend>
+                <textarea ng-model="reservation.requests" placeholder="Enter any special requests here..."></textarea>
+            </fieldset>
+
+            <button type="submit" class="submit-btn">Reserve</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
