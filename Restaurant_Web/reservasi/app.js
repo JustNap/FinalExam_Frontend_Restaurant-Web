@@ -52,7 +52,11 @@ app.controller('ReservationController', function ($scope, $timeout) {
             $scope.tableStatus[seat].available = false;
             $scope.tableStatus[seat].reservedUntil = new Date().getTime() + RESERVATION_TIME;
 
-            $scope.reservationDetails = { ...$scope.reservation };
+            $scope.reservationDetails = { 
+                ...$scope.reservation,
+                date: new Date($scope.reservation.date).toLocaleDateString('en-GB'),
+                time: new Date($scope.reservation.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+            };
 
             $timeout(function () {
                 $scope.tableStatus[seat].available = true;

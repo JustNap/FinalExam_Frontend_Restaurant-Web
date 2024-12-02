@@ -74,6 +74,20 @@
         </form>
     </div>
 
+
+    <div class="container summary" ng-if="isSummaryVisible">
+        <h1>Reservation Details</h1>
+        <p><strong>Name:</strong> {{ reservationDetails.name }}</p>
+        <p><strong>Phone:</strong> {{ reservationDetails.phone }}</p>
+        <p><strong>Email:</strong> {{ reservationDetails.email }}</p>
+        <p><strong>Table Type:</strong> {{ reservationDetails.tableType }}</p>
+        <p><strong>Date:</strong> {{ reservationDetails.date }}</p>
+        <p><strong>Time:</strong> {{ reservationDetails.time }}</p>
+        <p><strong>Number of Guests:</strong> {{ reservationDetails.guests }}</p>
+        <p><strong>Special Requests:</strong> {{ reservationDetails.requests || 'None' }}</p>
+        <p><strong>Table:</strong> {{ reservationDetails.table }}</p>
+        <button class="submit-btn" ng-click="resetForm()">Make Another Reservation</button>
+    </div>
 </body>
 
 </html>
