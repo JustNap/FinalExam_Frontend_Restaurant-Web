@@ -35,4 +35,33 @@ app.controller("MainController", function ($scope, $http) {
     $scope.goToLogin = function () {
         $scope.currentPage = "login.html";
     };
+
+    $scope.goToPage = function (page) {
+        $scope.currentPage = page;
+    };
+
+    $scope.logout = function () {
+        alert("Anda telah logout.");
+        $scope.currentPage = "login.html";
+    };
+
+    $scope.searchByName = function () {
+        const query = $scope.searchQuery;
+        $http.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`).then(response => {
+            $scope.meals = response.data.meals || [];
+        });
+    };
+
+    $scope.searchByFirstLetter = function () {
+        const query = $scope.searchQuery[0];
+        $http.get(`https://www.themealdb.com/api/json/v1/1/search.php?f=${query}`).then(response => {
+            $scope.meals = response.data.meals || [];
+        });
+    };
+
+    $scope.fetchCategories = function () {
+        $http.get("https://www.themealdb.com/api/json/v1/1/categories.php").then(response => {
+            $scope.meals = response.data.categories || [];
+        });
+    };
 });

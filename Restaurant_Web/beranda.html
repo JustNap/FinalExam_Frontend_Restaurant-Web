@@ -1,0 +1,53 @@
+<div class="container mt-4">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Restoran</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" ng-click="goToPage('menu.html')">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" ng-click="goToPage('keranjang.html')">Keranjang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" ng-click="goToPage('chat.html')">Chat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" ng-click="goToPage('about.html')">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="#" ng-click="logout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="my-4">
+        <input type="text" ng-model="searchQuery" class="form-control" placeholder="Cari makanan...">
+        <button class="btn btn-primary mt-2" ng-click="searchByName()">Cari Berdasarkan Nama</button>
+        <button class="btn btn-secondary mt-2" ng-click="searchByFirstLetter()">Cari Berdasarkan Huruf Pertama</button>
+        <button class="btn btn-success mt-2" ng-click="fetchCategories()">Lihat Semua Kategori</button>
+    </div>
+
+    <div id="results">
+        <div class="card mb-3" ng-repeat="meal in meals">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ meal.strMealThumb }}" class="img-fluid rounded-start" alt="{{ meal.strMeal }}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ meal.strMeal }}</h5>
+                        <p class="card-text">{{ meal.strInstructions | limitTo:100 }}...</p>
+                        <a href="{{ meal.strSource }}" target="_blank" class="btn btn-primary">Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
