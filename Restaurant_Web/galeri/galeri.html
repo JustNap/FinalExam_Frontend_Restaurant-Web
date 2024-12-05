@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="luxuryGalleryApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Food Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="GalleryController">
+
+    <header class="header">
+        <h1>Luxury Dining</h1>
+        <p>Experience elegance through our curated food gallery</p>
+    </header>
+
+    <div class="gallery">
+        <div class="gallery-item" ng-repeat="image in images">
+            <div class="card">
+                <img ng-src="{{image}}" alt="Luxury Food" class="card-image">
+                <div class="card-overlay">
+                    <p>A Good experience</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Luxury Dining. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
