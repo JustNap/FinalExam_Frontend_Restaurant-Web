@@ -55,12 +55,12 @@ header {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #1a1a1a, #333333); /* Gradasi hitam ke abu-abu gelap */
-    color: #f4d03f; /* Emas untuk teks */
+    background: linear-gradient(to right, #1a1a1a, #333333); 
+    color: #f4d03f; 
 }
 
 header {
-    background: #1a1a1a; /* Latar belakang hitam */
+    background: #1a1a1a; 
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -72,16 +72,16 @@ header {
 .navbar .logo {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #f4d03f; /* Emas untuk logo */
+    color: #f4d03f;
 }
 
 .navbar .logo span {
-    color: #f39c12; /* Warna emas lebih terang untuk bagian span */
+    color: #f39c12; 
 }
 
 .cart {
     font-size: 1.1rem;
-    color: #f4d03f; /* Emas untuk cart */
+    color: #f4d03f; 
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -98,11 +98,11 @@ header {
 }
 
 .meal {
-    background: #1a1a1a; /* Hitam untuk latar belakang meal */
+    background: #1a1a1a;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: #f4d03f; /* Emas untuk teks meal */
+    color: #f4d03f; 
     text-align: center;
 }
 
@@ -115,15 +115,15 @@ header {
 .add-to-cart {
     margin: 1rem auto;
     padding: 0.5rem 1rem;
-    background: #f39c12; /* Emas terang untuk tombol */
-    color: #1a1a1a; /* Hitam untuk teks tombol */
+    background: #f39c12; 
+    color: #1a1a1a; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .add-to-cart:hover {
-    background: #f4d03f; /* Emas lebih terang saat hover */
+    background: #f4d03f; 
 }
 
 .cart-modal {
@@ -142,8 +142,8 @@ header {
 }
 
 .cart-modal-content {
-    background: #1a1a1a; /* Hitam untuk latar belakang konten */
-    color: #f4d03f; /* Emas untuk teks */
+    background: #1a1a1a;
+    color: #f4d03f; 
     margin: 5% auto;
     padding: 40px;
     width: 80%;
@@ -178,28 +178,28 @@ header {
 }
 
 .remove-btn {
-    background: #f39c12; /* Emas terang untuk tombol remove */
-    color: #1a1a1a; /* Hitam untuk teks tombol */
+    background: #f39c12;
+    color: #1a1a1a; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .remove-btn:hover {
-    background: #f4d03f; /* Emas lebih terang saat hover */
+    background: #f4d03f; 
 }
 
 .checkout-button {
     padding: 10px 20px;
-    background-color: #f39c12; /* Emas terang untuk checkout */
-    color: #1a1a1a; /* Hitam untuk teks */
+    background-color: #f39c12; 
+    color: #1a1a1a; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .checkout-button:hover {
-    background-color: #f4d03f; /* Emas lebih terang saat hover */
+    background-color: #f4d03f; 
 }
 
 .invoice-modal {
@@ -218,8 +218,8 @@ header {
 }
 
 .invoice-modal-content {
-    background: #1a1a1a; /* Hitam untuk latar belakang invoice */
-    color: #f4d03f; /* Emas untuk teks invoice */
+    background: #1a1a1a;
+    color: #f4d03f; 
     padding: 20px;
     max-width: 500px;
     margin: 10% auto;
@@ -229,15 +229,15 @@ header {
 
 .close-invoice {
     padding: 10px;
-    background-color: #f39c12; /* Emas terang untuk close button */
-    color: #1a1a1a; /* Hitam untuk teks tombol */
+    background-color: #f39c12; 
+    color: #1a1a1a; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .close-invoice:hover {
-    background-color: #f4d03f; /* Emas lebih terang saat hover */
+    background-color: #f4d03f; 
 }
 
 
