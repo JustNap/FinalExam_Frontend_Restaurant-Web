@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxury Food Gallery</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
 
@@ -16,7 +16,18 @@
         <p>Experience elegance through our curated food gallery</p>
     </header>
 
-    <div class="gallery">
+    <section id="about" class="about">
+        <h2>About Luxury Dining</h2>
+        <p>Luxury Dining is a premier restaurant that offers a perfect blend of culinary artistry and
+            elegant ambiance. Featuring a selection of the finest dishes from around the globe, we provide an
+            unforgettable dining experience like no other. Each dish is crafted with a touch of tradition and
+            innovation,
+            delivering flavors that indulge your taste buds. At Luxury Dining, every moment is a celebration of taste
+            and sophistication.
+        </p>
+    </section>
+
+    <div id="gallery" class="gallery">
         <div class="gallery-item" ng-repeat="image in images">
             <div class="card">
                 <img ng-src="{{image}}" alt="Luxury Food" class="card-image">
