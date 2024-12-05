@@ -8,13 +8,43 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <div class="navbar">
+            <div class="logo">American<span>Resto</span></div>
+            <div class="cart" id="cartIcon">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cartCount">0</span> Items
+            </div>
+        </div>
+    </header>
+
     <main>
         <h2>Our Meals</h2>
         <div id="menuGrid" class="menu-grid"></div>
     </main>
 
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-modal-content">
+            <span id="closeModal" class="close-modal">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cartItems" class="cart-items"></div>
+            <button id="checkout" class="checkout-button">Checkout</button>
+        </div>
+    </div>
+
+<div id="invoiceModal" class="cart-modal">
+    <div class="cart-modal-content">
+        <span id="closeInvoice" class="close-modal">&times;</span>
+        <h2>Invoice</h2>
+        <div id="invoiceItems"></div>
+        <p><strong>Total Amount: </strong><span id="totalAmount">0</span></p>
+        <button id="printInvoice" class="checkout-button">Print Invoice</button>
+    </div>
+</div>
+
+
     <footer>
-        <p>&copy; 2024 American Resto</p>
+        <p>&copy; Restaurant </p>
     </footer>
 
     <script src="script.js"></script>
