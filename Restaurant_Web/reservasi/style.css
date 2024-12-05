@@ -3,7 +3,7 @@ body {
     background-color: #121212;
     margin: 0;
     padding: 0;
-    color: #f0e68c;
+    color: #f8c471;
 }
 
 .container {
@@ -17,12 +17,12 @@ body {
 
 h1 {
     text-align: center;
-    color: #f0e68c;
+    color: #f8c471;
     margin-bottom: 20px;
 }
 
 form fieldset {
-    border: 1px solid #f0e68c;
+    border: 1px solid #f8c471;
     padding: 30px;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -31,21 +31,21 @@ form fieldset {
 form fieldset legend {
     font-weight: bold;
     padding: 0 5px;
-    color: #f0e68c;
+    color: #f8c471;
 }
 
 label {
     display: block;
     margin: 10px 0 5px;
     font-weight: bold;
-    color: #f0e68c;
+    color: #f8c471;
 }
 
 input, textarea, select {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #f0e68c;
+    border: 1px solid #f8c471;
     border-radius: 5px;
     background-color: #333333; 
     color: #fff;
@@ -60,7 +60,7 @@ input::placeholder, textarea::placeholder {
 }
 
 button.submit-btn {
-    background-color: #f0e68c;
+    background-color: #f8c471;
     color: #1e1e1e;
     border: none;
     padding: 15px;
@@ -78,7 +78,7 @@ button.submit-btn:hover {
 }
 
 .popular-time-btn {
-    background-color: #f0e68c;
+    background-color: #f8c471;
     color: #1e1e1e;
     border: none;
     padding: 10px 15px;
@@ -110,7 +110,7 @@ button.submit-btn:hover {
     height: 50px;
     margin: 5px;
     background-color: #444444;
-    border: 2px solid #f0e68c;
+    border: 2px solid #f8c471;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,7 +119,7 @@ button.submit-btn:hover {
     font-weight: bold;
     font-size: 14px;
     transition: background-color 0.3s, transform 0.3s, color 0.3s;
-    color: #f0e68c;
+    color: #f8c471;
 }
 
 .table:hover {
@@ -129,7 +129,7 @@ button.submit-btn:hover {
 }
 
 .table.selected {
-    background-color: #f0e68c;
+    background-color: #f8c471;
     color: #1e1e1e;
     border-color: #d1c085;
 }
@@ -151,6 +151,6 @@ button.submit-btn:hover {
     color: #fff;
 }
 .container-summary p strong {
-    color: #f0e68c;
+    color: #f8c471;
     font-weight: bold;
 }

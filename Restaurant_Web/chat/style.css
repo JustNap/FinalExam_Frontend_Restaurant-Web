@@ -7,13 +7,13 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #121212;
-    color: #f0e68c; /* Warna emas muda */
+    color: #f8c471; 
 }
 
 .app-container {
     width: 100%;
     margin: 0 auto;
-    background: #1d1d1d; /* Latar belakang hitam gelap */
+    background: #1d1d1d; 
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -25,19 +25,19 @@ body {
 }
 
 .header {
-    background: #333333; /* Hitam keabu-abuan */
-    color: #f0e68c;
+    background: #333333; 
+    color: #f8c471;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #f0e68c;
+    border-bottom: 1px solid #f8c471;
 }
 
 .back-button, .switch-user {
     background: none;
-    border: 1px solid #f0e68c;
-    color: #f0e68c;
+    border: 1px solid #f8c471;
+    color: #f8c471;
     cursor: pointer;
     padding: 0.5rem;
     border-radius: 5px;
@@ -45,7 +45,7 @@ body {
 }
 
 .back-button:hover, .switch-user:hover {
-    background: #f0e68c;
+    background: #f8c471;
     color: #1d1d1d;
 }
 
@@ -68,33 +68,33 @@ body {
 }
 
 .message.sent {
-    background: #444444; /* Hitam terang */
+    background: #444444;
     margin-left: auto;
     border-bottom-right-radius: 0.2rem;
 }
 
 .message.received {
-    background: #2e2e2e; /* Hitam medium */
+    background: #2e2e2e;
     margin-right: auto;
     border-bottom-left-radius: 0.2rem;
 }
 
 .user-name {
     font-size: 0.8rem;
-    color: #f0e68c;
+    color: #f8c471;
     margin-bottom: 0.2rem;
 }
 
 .message-time {
     font-size: 0.7rem;
-    color: #d1c085; /* Warna emas yang lebih gelap */
+    color: #d1c085;
     margin-top: 0.2rem;
 }
 
 .input-container {
     padding: 1rem;
     background: #1d1d1d;
-    border-top: 1px solid #f0e68c;
+    border-top: 1px solid #f8c471;
     display: flex;
     gap: 1rem;
 }
@@ -102,7 +102,7 @@ body {
 .message-input {
     flex: 1;
     padding: 0.5rem;
-    border: 1px solid #f0e68c;
+    border: 1px solid #f8c471;
     border-radius: 1.5rem;
     outline: none;
     background: #333333;
@@ -114,7 +114,7 @@ body {
 }
 
 .send-button {
-    background: #f0e68c;
+    background: #f8c471;
     color: #1d1d1d;
     border: none;
     padding: 0.5rem 1rem;
