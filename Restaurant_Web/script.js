@@ -1,4 +1,4 @@
-const app = angular.module("restoApp", []);
+var app = angular.module("restoApp", []);
 
 app.controller("MainController", function ($scope, $http) {
 
@@ -11,12 +11,42 @@ app.controller("MainController", function ($scope, $http) {
     $scope.meals = [];
     $scope.searchQuery = "";
 
+    $scope.selectedMeal = {};
+
+    $scope.getMealCategories = function () {
+        $http.get('https://www.themealdb.com/api/json/v1/1/categories.php')
+            .then(function (response) {
+                $scope.meals = response.data.categories;
+            })
+            .catch(function (error) {
+                console.error("Error fetching data from API:", error);
+            });
+    };
+
+    $scope.getMealCategories();
+
+    $scope.viewMealDetails = function (meal) {
+        $scope.selectedMeal = meal;
+        const modal = new bootstrap.Modal(document.getElementById('mealDetailModal'));
+        modal.show();
+    };
+
+
+    $scope.validateEmail = function (email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    };
+
     $scope.login = function () {
-        if ($scope.user.email && $scope.user.password) {
-            $scope.currentPage = "beranda.html";
-        } else {
-            alert("Email dan password wajib diisi.");
+        if (!$scope.validateEmail($scope.user.email)) {
+            alert("Format email tidak valid.");
+            return;
         }
+        if ($scope.user.password.length < 6) {
+            alert("Password minimal 6 karakter.");
+            return;
+        }
+        $scope.currentPage = "beranda.html";
     };
 
     $scope.register = function () {
@@ -43,25 +73,5 @@ app.controller("MainController", function ($scope, $http) {
     $scope.logout = function () {
         alert("Anda telah logout.");
         $scope.currentPage = "login.html";
-    };
-
-    $scope.searchByName = function () {
-        const query = $scope.searchQuery;
-        $http.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`).then(response => {
-            $scope.meals = response.data.meals || [];
-        });
-    };
-
-    $scope.searchByFirstLetter = function () {
-        const query = $scope.searchQuery[0];
-        $http.get(`https://www.themealdb.com/api/json/v1/1/search.php?f=${query}`).then(response => {
-            $scope.meals = response.data.meals || [];
-        });
-    };
-
-    $scope.fetchCategories = function () {
-        $http.get("https://www.themealdb.com/api/json/v1/1/categories.php").then(response => {
-            $scope.meals = response.data.categories || [];
-        });
     };
 });
