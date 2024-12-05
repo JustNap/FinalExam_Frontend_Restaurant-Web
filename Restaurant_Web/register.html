@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <h2 class="text-center">Register</h2>
+    <form ng-submit="register()">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nama</label>
+            <input type="text" id="name" class="form-control" ng-model="newUser.name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" class="form-control" ng-model="newUser.email" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="password" class="form-control" ng-model="newUser.password" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Register</button>
+    </form>
+    <p class="text-center mt-3">Sudah punya akun? <a href="" ng-click="goToLogin()">Login</a></p>
+</div>
