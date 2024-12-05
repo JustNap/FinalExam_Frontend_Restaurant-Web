@@ -1,52 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="mealApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resto - Meals</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
 </head>
-<body>
+<body ng-controller="mealController">
     <header>
         <div class="navbar">
             <div class="logo">American<span>Resto</span></div>
-            <div class="cart" id="cartIcon">
+            <div class="cart" ng-click="toggleCart()">
                 <i class="fas fa-shopping-cart"></i>
-                <span id="cartCount">0</span> Items
+                <span>{{ cart.length }}</span> Items
             </div>
         </div>
     </header>
 
     <main>
         <h2>Our Meals</h2>
-        <div id="menuGrid" class="menu-grid"></div>
+        <div class="menu-grid">
+            <div class="meal" ng-repeat="meal in meals">
+                <img ng-src="{{ meal.image }}" alt="{{ meal.name }}">
+                <h3>{{ meal.name }}</h3>
+                <p>Price: ${{ meal.price }}</p>
+                <button class="add-to-cart" ng-click="addToCart(meal)">Add to Cart</button>
+            </div>
+        </div>
     </main>
 
-    <div id="cartModal" class="cart-modal">
+    <div class="cart-modal" ng-show="showCart">
         <div class="cart-modal-content">
-            <span id="closeModal" class="close-modal">&times;</span>
+            <span class="close-modal" ng-click="toggleCart()">&times;</span>
             <h2>Your Cart</h2>
-            <div id="cartItems" class="cart-items"></div>
-            <button id="checkout" class="checkout-button">Checkout</button>
+            <div class="cart-items" ng-if="cart.length > 0">
+                <div class="cart-item" ng-repeat="item in cart track by $index">
+                    <img ng-src="{{ item.image }}" alt="{{ item.name }}">
+                    <h4>{{ item.name }}</h4>
+                    <p>Price: ${{ item.price }}</p>
+                    <button class="remove-btn" ng-click="removeFromCart($index)">Remove</button>
+                </div>
+            </div>
+            <div ng-if="cart.length === 0">
+                <p>Your cart is empty!</p>
+            </div>
+            <p><strong>Total: </strong>${{ getTotal() }}</p>
+            <button class="checkout-button" ng-click="checkout()">Checkout</button>
         </div>
     </div>
 
-<div id="invoiceModal" class="cart-modal">
-    <div class="cart-modal-content">
-        <span id="closeInvoice" class="close-modal">&times;</span>
-        <h2>Invoice</h2>
-        <div id="invoiceItems"></div>
-        <p><strong>Total Amount: </strong><span id="totalAmount">0</span></p>
-        <button id="printInvoice" class="checkout-button">Print Invoice</button>
-    </div>
-</div>
-
-
     <footer>
-        <p>&copy; Restaurant </p>
+        <p>&copy; 2024 Restaurant</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
