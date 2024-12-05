@@ -40,13 +40,17 @@ app.controller("mealController", function ($scope, $http) {
         $scope.invoice.number = "INV" + Math.floor(Math.random() * 10000); 
         $scope.invoice.date = new Date().toLocaleDateString(); 
         
+        $scope.invoice.items = $scope.cart.map((item) => ({
+            name: item.name,
+            category: item.name,
+            price: item.price,
+        }));
+
+        $scope.invoice.total = $scope.getTotal();
+
         $scope.cart = [];
         $scope.showCart = false;
         $scope.showInvoice = true;
-    };
-
-    $scope.toggleInvoice = () => {
-        $scope.showInvoice = !$scope.showInvoice;
     };
 
     $scope.closeInvoice = () => {

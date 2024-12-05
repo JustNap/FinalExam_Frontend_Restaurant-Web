@@ -76,36 +76,26 @@ header {
 .cart-modal {
     display: block;
     position: fixed;
-    top: 50%;  
-    left: 50%; 
-    transform: translate(-50%, -50%);  
-    width: 850px; 
-    height: 450px; 
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    border-radius: 10px; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 1000;
-    padding: 20px;
-    pointer-events: auto;
 }
 
 .cart-modal[ng-show="true"] {
-    display: block !important;
+    display: block;
 }
 
 .cart-modal-content {
+    background: white;
     color: black;
-    overflow-y: auto;
-    max-height: 70vh;  
-}
-
-.close-modal {
-    font-size: 2rem;
-    color: #ff5e62;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    margin: 5% auto;
+    padding: 40px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
 }
 
 .checkout-button {
@@ -121,8 +111,9 @@ header {
     background-color: #ff9966;
 }
 
+/* Invoice Modal */
 .invoice-modal {
-    display: block;
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -132,22 +123,21 @@ header {
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    z-index: 1000;
+    z-index: 1001;
     padding: 20px;
+}
+
+.invoice-modal[ng-show="showInvoice"] {
+    display: block;
 }
 
 .invoice-modal-content {
     color: black;
-    max-height: 80vh;
-}
-
-.invoice-details ul {
-    list-style-type: none;
-    padding: 0;
+    overflow-y: auto;
 }
 
 .close-invoice {
-    padding: 10px 20px;
+    padding: 10px;
     background-color: #ff5e62;
     color: white;
     border: none;
