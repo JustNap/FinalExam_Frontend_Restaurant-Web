@@ -1,26 +1,28 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color: #121212;
     margin: 0;
     padding: 0;
+    color: #f0e68c;
 }
 
 .container {
     max-width: 600px;
     margin: 20px auto;
-    background: #fff;
+    background: #1e1e1e;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(240, 230, 140, 0.2);
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #f0e68c;
+    margin-bottom: 20px;
 }
 
 form fieldset {
-    border: 1px solid #ddd;
+    border: 1px solid #f0e68c;
     padding: 30px;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -29,29 +31,37 @@ form fieldset {
 form fieldset legend {
     font-weight: bold;
     padding: 0 5px;
+    color: #f0e68c;
 }
 
 label {
     display: block;
     margin: 10px 0 5px;
     font-weight: bold;
+    color: #f0e68c;
 }
 
 input, textarea, select {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #f0e68c;
     border-radius: 5px;
+    background-color: #333333; 
+    color: #f0e68c;
 }
 
 textarea {
     height: 100px;
 }
 
+input::placeholder, textarea::placeholder {
+    color: #d1c085;
+}
+
 button.submit-btn {
-    background-color: #28a745;
-    color: white;
+    background-color: #f0e68c;
+    color: #1e1e1e;
     border: none;
     padding: 15px;
     width: 100%;
@@ -59,24 +69,28 @@ button.submit-btn {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 button.submit-btn:hover {
-    background-color: #218838;
+    background-color: #d1c085;
+    transform: scale(1.05);
 }
 
 .popular-time-btn {
-    background-color: #007bff;
-    color: white;
+    background-color: #f0e68c;
+    color: #1e1e1e;
     border: none;
     padding: 10px 15px;
     margin: 5px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .popular-time-btn:hover {
-    background-color: #0056b3;
+    background-color: #d1c085;
+    transform: scale(1.05);
 }
 
 .table-layout {
@@ -95,8 +109,8 @@ button.submit-btn:hover {
     width: 50px;
     height: 50px;
     margin: 5px;
-    background-color: #ddd;
-    border: 2px solid #aaa;
+    background-color: #444444; /* Hitam terang */
+    border: 2px solid #f0e68c; /* Border emas */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,26 +118,20 @@ button.submit-btn:hover {
     cursor: pointer;
     font-weight: bold;
     font-size: 14px;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s, color 0.3s;
+    color: #f0e68c;
 }
 
 .table:hover {
-    background-color: #cce5ff;
+    background-color: #333333;
     transform: scale(1.1);
-    border-color: #007bff;
+    color: #d1c085; /* Warna emas lebih gelap */
 }
 
 .table.selected {
-    background-color: #28a745;
-    color: white;
-    border-color: #218838;
-}
-
-.table.unavailable {
-    background-color: #e74c3c;
-    cursor: not-allowed;
-    color: white;
-    border-color: #c0392b;
+    background-color: #f0e68c;
+    color: #1e1e1e;
+    border-color: #d1c085;
 }
 
 .table.reserved {
