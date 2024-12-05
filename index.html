@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="mealApp">
+<head>
+    <title>Meal App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="MealController">
+
+    <!-- Menu Section -->
+    <div class="menu-grid">
+        <div class="meal" ng-repeat="category in categories">
+            <img ng-src="{{category.strCategoryThumb}}" alt="{{category.strCategory}}">
+            <h3>{{category.strCategory}}</h3>
+            <button ng-click="addToCart(category)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Cart Icon (Toggle Modal) -->
+    <div class="cart" ng-click="toggleCartModal()">
+        <i class="fas fa-shopping-cart"></i> Cart ({{cartCount}})
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" ng-show="showCartModal">
+        <div class="cart-modal-content">
+            <span ng-click="closeModal()">X</span>
+            <h2>Your Cart</h2>
+            <div class="cart-items" ng-if="cart.length">
+                <div class="cart-item" ng-repeat="item in cart">
+                    <img ng-src="{{categories.find(c => c.strCategory === item).strCategoryThumb}}" alt="{{item}}">
+                    <h4>{{item}}</h4>
+                    <button ng-click="removeFromCart($index)">Remove</button>
+                </div>
+            </div>
+            <div ng-if="!cart.length">Your cart is empty.</div>
+            <button ng-click="generateInvoice()" id="checkout">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Invoice Modal -->
+    <div class="invoice-modal" ng-show="showInvoiceModal">
+        <div class="invoice-modal-content">
+            <span ng-click="close
