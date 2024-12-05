@@ -11,7 +11,6 @@
 </head>
 
 <body ng-controller="ReservationController">
-
     <div class="container" ng-if="!isSummaryVisible">
         <h1>Restaurant Reservation</h1>
         <form ng-submit="submitReservation()" novalidate>
@@ -30,9 +29,9 @@
 
             <fieldset>
                 <legend>Details Reservation</legend>
-                <label for="tableType">Rooms Type:</label>
-                <select id="tableType" ng-model="reservation.tableType" required>
-                    <option value="">Select Table Rooms</option>
+                <label for="tableType">Room Type:</label>
+                <select id="tableType" ng-model="reservation.tableType" ng-change="updateTableLayout()" required>
+                    <option value="">Select Room Type</option>
                     <option value="Indoor">Indoor</option>
                     <option value="Outdoor">Outdoor</option>
                     <option value="VIP">VIP Room</option>
@@ -47,12 +46,13 @@
                 <label for="guests">Number of Guests:</label>
                 <input type="number" id="guests" ng-model="reservation.guests" min="1" required>
 
-                <div class="ticket-layout">
+                <div class="table-layout">
                     <h3>Select Table:</h3>
                     <div class="row" ng-repeat="row in tableRows">
                         <div 
                             class="table" 
                             ng-repeat="seat in row" 
+                            ng-if="seat" 
                             ng-click="selectTable(seat)" 
                             ng-class="{
                                 'selected': reservation.table === seat,
@@ -74,13 +74,12 @@
         </form>
     </div>
 
-
     <div class="container summary" ng-if="isSummaryVisible">
         <h1>Reservation Details</h1>
         <p><strong>Name:</strong> {{ reservationDetails.name }}</p>
         <p><strong>Phone:</strong> {{ reservationDetails.phone }}</p>
         <p><strong>Email:</strong> {{ reservationDetails.email }}</p>
-        <p><strong>Table Type:</strong> {{ reservationDetails.tableType }}</p>
+        <p><strong>Room Type:</strong> {{ reservationDetails.tableType }}</p>
         <p><strong>Date:</strong> {{ reservationDetails.date }}</p>
         <p><strong>Time:</strong> {{ reservationDetails.time }}</p>
         <p><strong>Number of Guests:</strong> {{ reservationDetails.guests }}</p>
