@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="chatApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitur Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="ChatController" class="app-container">
+        <div class="header">
+            <button class="back-button" ng-click="goBack()">←</button>
+            <div class="chat-header-info">
+                <h1>{{getHeaderTitle()}}</h1>
+                <span class="chat-status">Chat dengan {{getOtherUser().firstName}}</span>
+            </div>
+            <button class="switch-user" ng-click="toggleUser()">Switch User</button>
+        </div>
+
+        <div class="chat-container">
+            <div ng-repeat="message in messages | orderBy:'-createdAt'" 
+                class="message" 
+                ng-class="{'sent': message.author.id === currentUser.id, 'received': message.author.id !== currentUser.id}">
+                <div class="user-name">{{message.author.firstName}}</div>
+                <div class="message-content">{{message.text}}</div>
+                <div class="message-time">{{message.createdAt | date:'shortTime'}}</div>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <input type="text" 
+                class="message-input" 
+                ng-model="newMessage" 
+                laceholder="Type a message..."
+                ng-keypress="$event.keyCode === 13 && sendMessage()">
+            <button class="send-button" ng-click="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
