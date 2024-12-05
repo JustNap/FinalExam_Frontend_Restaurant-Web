@@ -120,3 +120,41 @@ header {
 .checkout-button:hover {
     background-color: #ff9966;
 }
+
+.invoice-modal {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.invoice-modal-content {
+    color: black;
+    max-height: 80vh;
+}
+
+.invoice-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.close-invoice {
+    padding: 10px 20px;
+    background-color: #ff5e62;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-invoice:hover {
+    background-color: #ff9966;
+}

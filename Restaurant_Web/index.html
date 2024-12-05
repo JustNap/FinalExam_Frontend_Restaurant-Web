@@ -32,6 +32,7 @@
         </div>
     </main>
 
+    <!-- Cart Modal -->
     <div class="cart-modal" ng-show="showCart">
         <div class="cart-modal-content">
             <span class="close-modal" ng-click="toggleCart()">&times;</span>
@@ -49,6 +50,26 @@
             </div>
             <p><strong>Total: </strong>${{ getTotal() }}</p>
             <button class="checkout-button" ng-click="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Invoice Modal -->
+    <div class="invoice-modal" ng-show="showInvoice">
+        <div class="invoice-modal-content">
+            <span class="close-modal" ng-click="toggleInvoice()">&times;</span>
+            <h2>Invoice</h2>
+            <div class="invoice-details">
+                <p><strong>Order Number:</strong> {{ invoice.number }}</p>
+                <p><strong>Date:</strong> {{ invoice.date }}</p>
+                <h3>Ordered Items:</h3>
+                <ul>
+                    <li ng-repeat="item in cart">
+                        <p>{{ item.name }} - ${{ item.price }}</p>
+                    </li>
+                </ul>
+                <p><strong>Total: </strong>${{ getTotal() }}</p>
+            </div>
+            <button class="close-invoice" ng-click="closeInvoice()">Close</button>
         </div>
     </div>
 

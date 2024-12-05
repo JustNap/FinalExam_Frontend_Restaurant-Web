@@ -4,6 +4,8 @@ app.controller("mealController", function ($scope, $http) {
     $scope.meals = [];
     $scope.cart = [];
     $scope.showCart = false;
+    $scope.showInvoice = false;
+    $scope.invoice = {};
 
     $http.get("https://www.themealdb.com/api/json/v1/1/categories.php").then(
         (response) => {
@@ -35,8 +37,19 @@ app.controller("mealController", function ($scope, $http) {
     };
 
     $scope.checkout = () => {
-        alert(`Total: $${$scope.getTotal()}. Thank you for your order!`);
+        $scope.invoice.number = "INV" + Math.floor(Math.random() * 10000); 
+        $scope.invoice.date = new Date().toLocaleDateString(); 
+        
         $scope.cart = [];
         $scope.showCart = false;
+        $scope.showInvoice = true;
+    };
+
+    $scope.toggleInvoice = () => {
+        $scope.showInvoice = !$scope.showInvoice;
+    };
+
+    $scope.closeInvoice = () => {
+        $scope.showInvoice = false;
     };
 });
