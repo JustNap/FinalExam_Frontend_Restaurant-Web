@@ -48,7 +48,7 @@ input, textarea, select {
     border: 1px solid #f0e68c;
     border-radius: 5px;
     background-color: #333333; 
-    color: #f0e68c;
+    color: #fff;
 }
 
 textarea {
@@ -109,8 +109,8 @@ button.submit-btn:hover {
     width: 50px;
     height: 50px;
     margin: 5px;
-    background-color: #444444; /* Hitam terang */
-    border: 2px solid #f0e68c; /* Border emas */
+    background-color: #444444;
+    border: 2px solid #f0e68c;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,7 +125,7 @@ button.submit-btn:hover {
 .table:hover {
     background-color: #333333;
     transform: scale(1.1);
-    color: #d1c085; /* Warna emas lebih gelap */
+    color: #d1c085;
 }
 
 .table.selected {
@@ -139,4 +139,18 @@ button.submit-btn:hover {
     color: white;
     border-color: #c0392b;
     cursor: not-allowed;
+}
+
+.container-summary {
+    max-width: 700px;
+    margin: 20px auto;
+    background: #1e1e1e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(240, 230, 140, 0.2);
+    color: #fff;
+}
+.container-summary p strong {
+    color: #f0e68c;
+    font-weight: bold;
 }
