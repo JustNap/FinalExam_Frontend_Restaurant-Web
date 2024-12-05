@@ -4,9 +4,30 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #f8c471; 
+}
+
 .navbar {
     background-color: #ff6f61;
     border-radius: 10px;
+}
+
+.navbar-brand {
+    animation: glowing 1.5s ease-in-out infinite;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.nav-link {
+    color: #f8c471 !important;
+}
+
+.container {
+    margin-top: 20px;
 }
 
 .navbar-nav .nav-item .nav-link {
@@ -26,7 +47,8 @@ input.form-control {
 }
 
 .card {
-    border: none;
+    background-color: #1d1d1d;
+    border: 1px solid #444;
     transition: transform 0.3s ease-in-out;
     border-radius: 10px;
     overflow: hidden;
@@ -37,7 +59,7 @@ input.form-control {
 }
 
 .card-body {
-    background-color: #f9f9f9;
+    background-color: #ffb74d;
 }
 
 .card-title {
@@ -90,4 +112,27 @@ input.form-control {
 .img-fluid {
     border-radius: 10px;
     margin-bottom: 15px;
+}
+
+@keyframes glowing {
+    0% {
+        text-shadow: 0 0 5px #f8719a, 0 0 10px #f8c471, 0 0 15px #b42411, 0 0 20px #9035cc;
+        color: #3dccb9;
+    }
+    25% {
+        text-shadow: 0 0 5px #76c21f, 0 0 10px #110c03, 0 0 15px #f8c471, 0 0 20px #16bcda;
+        color: #e61375;
+    }
+    50% {
+        text-shadow: 0 0 5px #82ec09, 0 0 10px #f8c471, 0 0 15px #e20c41, 0 0 20px #f8c471;
+        color: #f8c471;
+    }
+    75% {
+        text-shadow: 0 0 10px #f8c471, 0 0 20px #a3a19d, 0 0 30px #f8c471, 0 0 40px #f8c471;
+        color: #2b0ecc;
+    }
+    100% {
+        text-shadow: 0 0 5px #f8c471, 0 0 10px #2eec08, 0 0 15px #f8c471, 0 0 20px #a917ce;
+        color: #e60d18;
+    }
 }
