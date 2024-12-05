@@ -1,75 +1,42 @@
-var app = angular.module('mealApp', []);
+const app = angular.module("mealApp", []);
 
-app.controller('MealController', function($scope, $http) {
-    // Initial cart setup
-    $scope.cart = JSON.parse(localStorage.getItem("cart")) || [];
-    $scope.showCartModal = false;
-    $scope.showInvoiceModal = false;
+app.controller("mealController", function ($scope, $http) {
+    $scope.meals = [];
+    $scope.cart = [];
+    $scope.showCart = false;
 
-    // Load categories from API
-    $http.get("https://www.themealdb.com/api/json/v1/1/categories.php").then(function(response) {
-        $scope.categories = response.data.categories;
-    });
+    $http.get("https://www.themealdb.com/api/json/v1/1/categories.php").then(
+        (response) => {
+            $scope.meals = response.data.categories.map((category) => ({
+                name: category.strCategory,
+                price: Math.floor(Math.random() * 15) + 5, 
+                image: category.strCategoryThumb,
+            }));
+        },
+        (error) => {
+            console.error("Error fetching data:", error);
+        }
+    );
 
-    // Add item to cart
-    $scope.addToCart = function(category) {
-        $scope.cart.push(category.strCategory);
-        localStorage.setItem("cart", JSON.stringify($scope.cart));
-        $scope.updateCartCount();
+    $scope.addToCart = (meal) => {
+        $scope.cart.push(meal);
     };
 
-    // Remove item from cart
-    $scope.removeFromCart = function(index) {
+    $scope.removeFromCart = (index) => {
         $scope.cart.splice(index, 1);
-        localStorage.setItem("cart", JSON.stringify($scope.cart));
-        $scope.updateCartCount();
     };
 
-    // Update cart count
-    $scope.updateCartCount = function() {
-        $scope.cartCount = $scope.cart.length;
+    $scope.getTotal = () => {
+        return $scope.cart.reduce((total, item) => total + item.price, 0);
     };
 
-    // Generate invoice
-    $scope.generateInvoice = function() {
-        $scope.invoiceItems = [];
-        var totalAmount = 0;
+    $scope.toggleCart = () => {
+        $scope.showCart = !$scope.showCart;
+    };
 
-        $scope.cart.forEach(function(item) {
-            var category = $scope.categories.find(cat => cat.strCategory === item);
-            if (category) {
-                $scope.invoiceItems.push({
-                    name: category.strCategory,
-                    price: 10, // Assuming each item costs $10
-                    thumb: category.strCategoryThumb
-                });
-                totalAmount += 10; // Add $10 for each item in cart
-            }
-        });
-
-        $scope.totalAmount = totalAmount.toFixed(2);
-        $scope.showInvoiceModal = true;
-        localStorage.removeItem("cart"); // Clear cart after invoice generation
+    $scope.checkout = () => {
+        alert(`Total: $${$scope.getTotal()}. Thank you for your order!`);
         $scope.cart = [];
-        $scope.updateCartCount();
+        $scope.showCart = false;
     };
-
-    // Close modal
-    $scope.closeModal = function() {
-        $scope.showInvoiceModal = false;
-        $scope.showCartModal = false;  // Hide cart modal when closing
-    };
-
-    // Print Invoice
-    $scope.printInvoice = function() {
-        window.print();
-    };
-
-    // Toggle cart modal visibility
-    $scope.toggleCartModal = function() {
-        $scope.showCartModal = !$scope.showCartModal;
-    };
-
-    // Update cart count on load
-    $scope.updateCartCount();
 });

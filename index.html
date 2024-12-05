@@ -1,45 +1,56 @@
 <!DOCTYPE html>
-<html ng-app="mealApp">
+<html lang="en" ng-app="mealApp">
 <head>
-    <title>Meal App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resto - Meals</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="app.js"></script>
 </head>
-<body ng-controller="MealController">
-
-    <!-- Menu Section -->
-    <div class="menu-grid">
-        <div class="meal" ng-repeat="category in categories">
-            <img ng-src="{{category.strCategoryThumb}}" alt="{{category.strCategory}}">
-            <h3>{{category.strCategory}}</h3>
-            <button ng-click="addToCart(category)">Add to Cart</button>
+<body ng-controller="mealController">
+    <header>
+        <div class="navbar">
+            <div class="logo">American<span>Resto</span></div>
+            <div class="cart" ng-click="toggleCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span>{{ cart.length }}</span> Items
+            </div>
         </div>
-    </div>
+    </header>
 
-    <!-- Cart Icon (Toggle Modal) -->
-    <div class="cart" ng-click="toggleCartModal()">
-        <i class="fas fa-shopping-cart"></i> Cart ({{cartCount}})
-    </div>
+    <main>
+        <h2>Our Meals</h2>
+        <div class="menu-grid">
+            <div class="meal" ng-repeat="meal in meals">
+                <img ng-src="{{ meal.image }}" alt="{{ meal.name }}">
+                <h3>{{ meal.name }}</h3>
+                <p>Price: ${{ meal.price }}</p>
+                <button class="add-to-cart" ng-click="addToCart(meal)">Add to Cart</button>
+            </div>
+        </div>
+    </main>
 
-    <!-- Cart Modal -->
-    <div class="cart-modal" ng-show="showCartModal">
+    <div class="cart-modal" ng-show="showCart">
         <div class="cart-modal-content">
-            <span ng-click="closeModal()">X</span>
+            <span class="close-modal" ng-click="toggleCart()">&times;</span>
             <h2>Your Cart</h2>
-            <div class="cart-items" ng-if="cart.length">
-                <div class="cart-item" ng-repeat="item in cart">
-                    <img ng-src="{{categories.find(c => c.strCategory === item).strCategoryThumb}}" alt="{{item}}">
-                    <h4>{{item}}</h4>
-                    <button ng-click="removeFromCart($index)">Remove</button>
+            <div class="cart-items">
+                <div class="cart-item" ng-repeat="item in cart track by $index">
+                    <img ng-src="{{ item.image }}" alt="{{ item.name }}">
+                    <h4>{{ item.name }}</h4>
+                    <p>Price: ${{ item.price }}</p>
+                    <button class="remove-btn" ng-click="removeFromCart($index)">Remove</button>
                 </div>
             </div>
-            <div ng-if="!cart.length">Your cart is empty.</div>
-            <button ng-click="generateInvoice()" id="checkout">Checkout</button>
+            <p><strong>Total: </strong>${{ getTotal() }}</p>
+            <button class="checkout-button" ng-click="checkout()">Checkout</button>
         </div>
     </div>
 
-    <!-- Invoice Modal -->
-    <div class="invoice-modal" ng-show="showInvoiceModal">
-        <div class="invoice-modal-content">
-            <span ng-click="close
+    <footer>
+        <p>&copy; 2024 Restaurant</p>
+    </footer>
+</body>
+</html>
