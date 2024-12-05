@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    background-color: #ff6f61;
+    border-radius: 10px;
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-weight: bold;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #ffb74d;
+}
+
+input.form-control {
+    border-radius: 25px;
+    padding: 12px 20px;
+    font-size: 16px;
+}
+
+.card {
+    border: none;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-body {
+    background-color: #f9f9f9;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #666;
+}
+
+.card button {
+    background-color: #ff6f61;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+    background-color: #ff3d29;
+}
+
+.modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.modal-header {
+    border-bottom: 1px solid #eee;
+}
+
+.modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.modal-body {
+    font-size: 16px;
+    color: #555;
+}
+
+.img-fluid {
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
