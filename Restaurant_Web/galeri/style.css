@@ -24,11 +24,31 @@ body {
     color: #e0c097;
 }
 
+.about {
+    padding: 40px 20px;
+    background-color: #111;
+    color: #e0c097;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2rem;
+    color: #f8c471;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     padding: 40px;
+    background-color: #000;
 }
 
 .gallery-item {
