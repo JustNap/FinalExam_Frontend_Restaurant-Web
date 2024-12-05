@@ -96,22 +96,46 @@ header {
     width: 80%;
     max-width: 500px;
     border-radius: 8px;
+    max-height: 70vh; 
+    overflow-y: auto;  
 }
 
-.checkout-button {
-    padding: 10px 20px;
-    background-color: #ff5e62;
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-item h4 {
+    margin: 0;
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+.cart-item p {
+    margin: 0;
+    padding-left: 10px;
+}
+
+.remove-btn {
+    background: #ff5e62;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.checkout-button:hover {
-    background-color: #ff9966;
+.remove-btn:hover {
+    background: #ff9966;
 }
 
-/* Invoice Modal */
 .invoice-modal {
     display: none;
     position: fixed;
