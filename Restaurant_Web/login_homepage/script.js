@@ -12,6 +12,8 @@ app.controller("MainController", function ($scope, $http) {
     $scope.searchQuery = "";
 
     $scope.selectedMeal = {};
+    $scope.registeredUsers = [];
+
 
     $scope.getMealCategories = function () {
         $http.get('https://www.themealdb.com/api/json/v1/1/categories.php')
@@ -46,13 +48,31 @@ app.controller("MainController", function ($scope, $http) {
             alert("Password minimal 6 karakter.");
             return;
         }
-        $scope.currentPage = "beranda.html";
+        const user = $scope.registeredUsers.find(
+            (u) => u.email === $scope.user.email && u.password === $scope.user.password
+        );
+    
+        if (user) {
+            alert(`Selamat datang, ${user.name}!`);
+            $scope.user = {};
+            $scope.goToPage("beranda.html");
+        } else {
+            alert("Email atau password salah.");
+        }
     };
 
     $scope.register = function () {
         if ($scope.newUser.name && $scope.newUser.email && $scope.newUser.password) {
+
+            $scope.registeredUsers.push({
+                name: $scope.newUser.name,
+                email: $scope.newUser.email,
+                password: $scope.newUser.password
+            });
+
             alert("Registrasi berhasil!");
-            $scope.currentPage = "login.html";
+            $scope.newUser = {};
+            $scope.goToPage ("login.html");
         } else {
             alert("Semua field wajib diisi.");
         }
