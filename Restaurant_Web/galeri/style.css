@@ -119,3 +119,27 @@ body {
     color: #e0c097;
     font-size: 0.9rem;
 }
+
+.back-button {
+    display: inline-block;
+    background-color: #121212;
+    color: #f8c471;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #f8c471;
+    transform: scale(1.05);
+}
+
+.back-button:active {
+    background-color: #121212;
+    transform: scale(0.95);
+}

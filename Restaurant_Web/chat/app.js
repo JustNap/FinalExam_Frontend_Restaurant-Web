@@ -1,5 +1,5 @@
 angular.module('chatApp', [])
-.controller('ChatController', function($scope) {
+.controller('ChatController', function($scope, $window) {
     $scope.user1 = {
         id: '1',
         firstName: 'User'
@@ -43,6 +43,6 @@ angular.module('chatApp', [])
     };
 
     $scope.goBack = function() {
-        $window.location.href = 'home.html';
+        $window.location.href = '../homepage/beranda.html';
     };
 });

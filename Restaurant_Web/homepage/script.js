@@ -1,6 +1,6 @@
 var app = angular.module("restoApp", []);
 
-app.controller("MainController", function ($scope, $http) {
+app.controller("MainController", function ($scope, $http, $window) {
 
     $scope.currentPage = "login.html";
 
@@ -93,5 +93,9 @@ app.controller("MainController", function ($scope, $http) {
     $scope.logout = function () {
         alert("Anda telah logout.");
         $scope.currentPage = "login.html";
+    };
+
+    $scope.goBack = function() {
+        $window.location.href = '../homepage/beranda.html';
     };
 });

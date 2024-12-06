@@ -1,6 +1,6 @@
 const app = angular.module('reservationApp', []);
 
-app.controller('ReservationController', function ($scope, $timeout) {
+app.controller('ReservationController', function ($scope, $timeout, $window) {
     const layouts = {
         Indoor: [
             ['1A', '1B', '1C', '1D'],
@@ -100,5 +100,9 @@ app.controller('ReservationController', function ($scope, $timeout) {
         $scope.reservation = {};
         $scope.isSummaryVisible = false;
         $scope.tableRows = [];
+    };
+
+    $scope.goBack = function() {
+        $window.location.href = '../homepage/beranda.html';
     };
 });
