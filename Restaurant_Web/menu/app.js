@@ -1,6 +1,6 @@
 const app = angular.module("mealApp", []);
 
-app.controller("mealController", function ($scope, $http) {
+app.controller("mealController", function ($scope, $http, $window) {
     $scope.meals = [];
     $scope.cart = [];
     $scope.showCart = false;
@@ -55,5 +55,9 @@ app.controller("mealController", function ($scope, $http) {
 
     $scope.closeInvoice = () => {
         $scope.showInvoice = false;
+    };
+
+    $scope.goBack = function() {
+        $window.location.href = '../homepage/beranda.html';
     };
 });

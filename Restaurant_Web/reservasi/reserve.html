@@ -11,6 +11,7 @@
 </head>
 
 <body ng-controller="ReservationController">
+    <button class="back-button" ng-click="goBack()">←</button>
     <div class="container" ng-if="!isSummaryVisible">
         <h1>Restaurant Reservation</h1>
         <form ng-submit="submitReservation()" novalidate>

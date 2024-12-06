@@ -1,6 +1,6 @@
 const app = angular.module('luxuryGalleryApp', []);
 
-app.controller('GalleryController', function($scope, $http) {
+app.controller('GalleryController', function($scope, $http, $window) {
     $scope.images = [];
 
     const categories = [
@@ -20,4 +20,8 @@ app.controller('GalleryController', function($scope, $http) {
             }
         });
     });
+
+    $scope.goBack = function() {
+        $window.location.href = '../homepage/beranda.html';
+    };
 });
